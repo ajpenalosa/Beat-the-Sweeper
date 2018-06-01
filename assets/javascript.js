@@ -40,10 +40,29 @@ function onSignIn(googleUser) {
     var userEmailP = $("<p>");
     userEmailP.text("E-Mail: " + profile.getEmail());
 
+    // Appending user info column to row
     userInfoRow.append(userInfoColumn);
     userInfoColumn.append(fullNameP, userEmailP);
 
+    // Creating sign out button
+    var navBar = $(".navbar-nav");
+    var signOutLi = $("<li class='nav-item'>")
+    var signOutLink = $("<a class='nav-link' href='#' onclick='signOut();'>").text("Sign Out");
+
+    navBar.append(signOutLi);
+    signOutLi.append(signOutLink);
 };
+
+// Google Sign Out
+function signOut() {
+  var auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(function () {
+    // Shows sign in message
+    $(".dashboard-message").show();
+      $(".dashboard").empty();
+    console.log('User signed out.');
+  });
+}
 
 // Street Sweeping API
 
