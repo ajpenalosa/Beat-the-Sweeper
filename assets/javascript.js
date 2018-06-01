@@ -10,7 +10,6 @@ $.ajax({
       "$$app_token" : "aWDcPjXSGOOSmKIk1wuZzfykV"
     }
 }).done(function(data) {
-  alert("Retrieved " + data.length + " records from the dataset!");
   console.log(data);
 });
 
@@ -20,7 +19,7 @@ var queryMapURL = "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaS
 
 $.ajax({
     url: queryMapURL,
-    method: "GET"
+    method: "POST"
 
 }).then(function(response) {
     console.log(response)
