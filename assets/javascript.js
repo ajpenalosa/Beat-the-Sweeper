@@ -62,10 +62,26 @@ function signOut() {
       $(".dashboard").empty();
     console.log('User signed out.');
   });
+window.onload = function() {
+    // Check to see if the browser supports the GeoLocation API.
+    if (navigator.geolocation) {
+
+    } else {
+  // Print out a message to the user.
+  document.write('Your browser does not support GeoLocation');
+    }
+  }
 }
+// Get the location
+// navigator.geolocation.getCurrentPosition(function(position) {
+//     var lat = position.coords.latitude;
+//     var lon = position.coords.longitude;
+// });
+//     getCurrentPosition(lat, lon);
 
-// Street Sweeping API
 
+
+    // Street Sweeping API
 $.ajax({
     url: "https://data.lacity.org/resource/x8i3-2x54.json",
     type: "GET",
@@ -74,17 +90,23 @@ $.ajax({
       "$$app_token" : "aWDcPjXSGOOSmKIk1wuZzfykV"
     }
 }).done(function(data) {
+ console.log("Retrieved " + data.length + " records from the dataset!");
   console.log(data);
 });
 
 
+// var user = "";
+// // var userLocation = "";
+
+
 // google maps GeoLocation API
-var queryMapURL = "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAnuOLy1xpmpNsIvSH165kWQYKAvlQqnz4"
+var queryMapURL = "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCLkhpxn8Q2ZAg203qBCwUS_COo28uI1x4"
 
-$.ajax({
-    url: queryMapURL,
-    method: "POST"
-
-}).then(function(response) {
-    console.log(response)
-});
+    $.ajax({
+        url: queryMapURL,
+        method: "POST"
+    
+    }).then(function(response) {
+        console.log(response)
+        console.log('user\'s location is: ', response)    
+    });
