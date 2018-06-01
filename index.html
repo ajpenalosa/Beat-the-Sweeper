@@ -16,11 +16,16 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/style.css" />
 </head>
 <body>
-  <div class="abstract">
+    <h2>beat the sweeper</h2>
+    <div class="container">
+   
+        <div class="abstract">
     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi dolorem itaque ea facilis, quam voluptatum, rem doloremque nulla consectetur quasi, quia eum voluptates! Dolorum saepe quis fugit corporis laborum tenetur!
   </div>
     <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-
+    <div class="mapDisplay">map goes here</div>
+    <div class="calendarDisplay">calendar here</div>
+  </div>
     <!-- Google Sign-In -->
     <script>
       function onSignIn(googleUser) {
@@ -32,7 +37,6 @@
         console.log('Family Name: ' + profile.getFamilyName());
         console.log("Image URL: " + profile.getImageUrl());
         console.log("Email: " + profile.getEmail());
-
         // The ID token you need to pass to your backend:
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
