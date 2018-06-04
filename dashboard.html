@@ -53,22 +53,23 @@
     </nav>
     
     <div class="container">
-
-        <div class="dashboard-message">
-
+        <section class="dashboard-message">
             <div class="row">
-                
                 <div class="col-sm-12">
-
                     <h2>Please log in to view this page.</h2>
-
                 </div>
-
             </div> <!-- /row -->
-
-        </div> <!-- /dashboard-message -->
+        </section> <!-- /dashboard-message -->
 
         <div class="dashboard"></div>
+
+        <section class="map-wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </section> <!-- /map-wrapper -->
 
     </div> <!-- /container -->
 
@@ -77,6 +78,11 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    <!-- Google Maps -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAukbl8htJlAWFaLaIv4UC-wJ54RzgZtRs&callback=initMap">
+    </script>
 
     <!-- JavaScript -->
     <script type="text/JavaScript" src="assets/javascript.js"></script>

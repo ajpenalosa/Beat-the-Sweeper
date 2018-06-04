@@ -2,3 +2,16 @@
 .dashboard {
     padding-top: 60px;
 }
+
+/* -----------------------------------
+	Google Map
+----------------------------------- */
+
+.map-wrapper {
+    padding-top: 40px;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+}
