@@ -98,9 +98,11 @@ $.ajax({
 // var user = "";
 // // var userLocation = "";
 
+    
+
 
 // google maps GeoLocation API
-var queryMapURL = "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCLkhpxn8Q2ZAg203qBCwUS_COo28uI1x4"
+var queryMapURL = "https://www.googleapis.com/geolocation/v1/geolocate?key=https://maps.googleapis.com/maps/api/js?key=AIzaSyA839aGT61kMQtDkbhJzsbjbrxPxm4b_Ac"
 
     $.ajax({
         url: queryMapURL,
@@ -108,5 +110,8 @@ var queryMapURL = "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaS
     
     }).then(function(response) {
         console.log(response)
-        console.log('user\'s location is: ', response)    
+        console.log('user\'s location is: ', response) 
+       
+
     });
+
