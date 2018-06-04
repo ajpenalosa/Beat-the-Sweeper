@@ -1,3 +1,4 @@
+var geoName = "";
 // Google Sign-In
 function onSignIn(googleUser) {
   // Useful data for your client-side scripts:
@@ -12,6 +13,8 @@ function onSignIn(googleUser) {
   var id_token = googleUser.getAuthResponse().id_token;
   console.log("ID Token: " + id_token);
   console.log(profile);
+
+  geoName = profile.getName();
 
   // Dashboard
 
@@ -81,6 +84,23 @@ function initMap() {
     center: {lat: -34.397, lng: 150.644},
     zoom: 16
   });
+
+  var laLayer = new google.maps.KmlLayer({
+    url: 'http://www.google.com/maps/d/u/0/kml?forcekml=1&mid=16jnSQvkl-KyB86aw6BZaHnvMoJlGSwEw',
+    preserveViewport: true,
+    map: map
+  });
+  
+  // kmlLayer.addListener('click', function(kmlEvent) {
+  //   var text = kmlEvent.featureData.description;
+  //   showInContentWindow(text);
+  // });
+
+  // function showInContentWindow(text) {
+  //   var sideDiv = document.getElementById('content-window');
+  //   sideDiv.innerHTML = text;
+  // }
+
   infoWindow = new google.maps.InfoWindow;
 
   // Try HTML5 geolocation.
@@ -95,7 +115,7 @@ function initMap() {
       console.log("Longitude: " + position.coords.longitude);
 
       infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
+      infoWindow.setContent(geoName);
       infoWindow.open(map);
       map.setCenter(pos);
     }, function() {
@@ -140,17 +160,17 @@ $(document).ready(function() {
     }
   }
 
-  // GeoLocation Key
-  var geoKey = "AIzaSyAukbl8htJlAWFaLaIv4UC-wJ54RzgZtRs"
+  // // GeoLocation Key
+  // var geoKey = "AIzaSyAukbl8htJlAWFaLaIv4UC-wJ54RzgZtRs"
 
-  // Google Maps GeoLocation API
-  var queryMapURL = "https://www.googleapis.com/geolocation/v1/geolocate?key=" + geoKey;
+  // // Google Maps GeoLocation API
+  // var queryMapURL = "https://www.googleapis.com/geolocation/v1/geolocate?key=" + geoKey;
 
-  $.ajax({
-    url: queryMapURL,
-    method: "POST"
-  }).then(function(response) {
-    console.log('user\'s location is: ', response);   
-  });
+  // $.ajax({
+  //   url: queryMapURL,
+  //   method: "POST"
+  // }).then(function(response) {
+  //   console.log('user\'s location is: ', response);   
+  // });
   
 }); // End of Document.ready
