@@ -85,11 +85,25 @@ function initMap() {
     zoom: 16
   });
 
-  var laLayer = new google.maps.KmlLayer({
-    url: 'http://www.google.com/maps/d/u/0/kml?forcekml=1&mid=1j1pOv1RxL5JX39nJcJChL5YwZbt-lvBX',
-    preserveViewport: true,
-    map: map
+  // Define the LatLng coordinates for the polygon's path.
+  var route14P198Coordinates = [
+    {lat: 34.05991, lng: -118.44343},
+    {lat: 34.06147, lng: -118.43815},
+    {lat: 34.05095, lng: -118.43403},
+    {lat: 34.04974, lng: -118.43699},
+    {lat: 34.05991, lng: -118.44343}
+  ];
+
+  // Route 14P198
+  var route14P198 = new google.maps.Polygon({
+    paths: route14P198Coordinates,
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35
   });
+  route14P198.setMap(map);
 
   infoWindow = new google.maps.InfoWindow;
 
