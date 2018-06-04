@@ -86,7 +86,7 @@ function initMap() {
   });
 
   var laLayer = new google.maps.KmlLayer({
-    url: 'http://www.google.com/maps/d/u/0/kml?forcekml=1&mid=16jnSQvkl-KyB86aw6BZaHnvMoJlGSwEw',
+    url: 'http://www.google.com/maps/d/u/0/kml?forcekml=1&mid=1j1pOv1RxL5JX39nJcJChL5YwZbt-lvBX',
     preserveViewport: true,
     map: map
   });
@@ -107,8 +107,8 @@ function initMap() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
+        lat: 34.0591149, // position.coords.latitude,
+        lng: -118.4411627 // position.coords.longitude
       };
 
       console.log("Latitude: " + position.coords.latitude);
