@@ -85,6 +85,11 @@ function initMap() {
     zoom: 16
   });
 
+  var myParser = new geoXML3.parser({map: map});
+  myParser.parse('./assets/routes/routes-01.kmz');
+
+  console.log(myParser);
+
   var laLayer = new google.maps.KmlLayer({
     url: 'http://www.google.com/maps/d/u/0/kml?forcekml=1&mid=1j1pOv1RxL5JX39nJcJChL5YwZbt-lvBX',
     preserveViewport: true,
@@ -190,18 +195,5 @@ $(document).ready(function() {
       }
     });
   });
-
-  // // GeoLocation Key
-  // var geoKey = "AIzaSyAukbl8htJlAWFaLaIv4UC-wJ54RzgZtRs"
-
-  // // Google Maps GeoLocation API
-  // var queryMapURL = "https://www.googleapis.com/geolocation/v1/geolocate?key=" + geoKey;
-
-  // $.ajax({
-  //   url: queryMapURL,
-  //   method: "POST"
-  // }).then(function(response) {
-  //   console.log('user\'s location is: ', response);   
-  // });
   
 }); // End of Document.ready
