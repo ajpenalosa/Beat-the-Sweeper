@@ -90,16 +90,6 @@ function initMap() {
     preserveViewport: true,
     map: map
   });
-  
-  // kmlLayer.addListener('click', function(kmlEvent) {
-  //   var text = kmlEvent.featureData.description;
-  //   showInContentWindow(text);
-  // });
-
-  // function showInContentWindow(text) {
-  //   var sideDiv = document.getElementById('content-window');
-  //   sideDiv.innerHTML = text;
-  // }
 
   infoWindow = new google.maps.InfoWindow;
 
@@ -159,6 +149,47 @@ $(document).ready(function() {
       document.write('Your browser does not support GeoLocation');
     }
   }
+
+  // Search Page
+  $("#search-submit").on("click", function(event) {
+    event.preventDefault();
+
+    $(".search-results").empty();
+
+    var searchInput = $("#search-input").val();
+    var queryURL = "https://data.lacity.org/resource/x8i3-2x54.json?$q=" + searchInput;
+
+    // Street Sweeping API
+    $.ajax({
+      url: queryURL,
+      type: "GET",
+      data: {
+        "$limit" : 5000,
+        "$$app_token" : "aWDcPjXSGOOSmKIk1wuZzfykV"
+      }
+    }).done(function(data) {
+      console.log(data);
+      console.log(data[0].boundaries);
+
+      for ( var i = 0; i < data.length; i++) {
+        var boundaries = data[i].boundaries;
+        var councilDistrict = data[i].cd;
+        var routeNo = data[i].route_no;
+        var timeEnd = data[i].time_end;
+        var timeStart = data[i].time_start;
+        
+        var resultDiv = $("<div>");
+        resultDiv.html(
+          "<p><strong>Boundaries:</strong> " + boundaries + "<br />" + 
+          "<strong>Council District:</strong> " + councilDistrict + "<br />" + 
+          "<strong>Route Number:</strong> " + routeNo + "<br />" + 
+          "<strong>Time:</strong> " + timeStart + " to " + timeEnd + "</p>"
+        );
+
+        $(".search-results").append(resultDiv);
+      }
+    });
+  });
 
   // // GeoLocation Key
   // var geoKey = "AIzaSyAukbl8htJlAWFaLaIv4UC-wJ54RzgZtRs"
