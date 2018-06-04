@@ -19,7 +19,19 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <link rel="stylesheet" type="text/css" media="screen" href="assets/style.css" />
-
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCg1YTu0pDzRpfGDT5604qBNqJAH6Zu_e4",
+      authDomain: "beatsweep-fae08.firebaseapp.com",
+      databaseURL: "https://beatsweep-fae08.firebaseio.com",
+      projectId: "beatsweep-fae08",
+      storageBucket: "beatsweep-fae08.appspot.com",
+      messagingSenderId: "768535801275"
+    };
+    firebase.initializeApp(config);
+  </script>
 </head>
 
 <body>
@@ -76,7 +88,7 @@
     </div> <!-- /container -->
 
   </div> <!-- /Jumbotron -->
-
+  
   <!-- Google Sign-In -->
   <script>
     function onSignIn(googleUser) {
@@ -93,7 +105,8 @@
       console.log("ID Token: " + id_token);
       console.log(profile);
     };
-  </script>
+ 
+ </script>
     
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -102,6 +115,9 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
   <!-- JavaScript -->
+ 
+  
+
   <script type="text/JavaScript" src="assets/javascript.js"></script>
     
 </body>

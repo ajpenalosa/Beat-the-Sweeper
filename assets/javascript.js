@@ -88,3 +88,7 @@ $.ajax({
 }).then(function(response) {
     console.log(response)
 });
+
+//check if user is within the polygon
+
+  
