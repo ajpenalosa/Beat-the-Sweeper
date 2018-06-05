@@ -171,11 +171,64 @@ function initMap() {
         lng: -118.4411627 // position.coords.longitude
       };
 
+      var contentString = "<p><strong>Name:</strong> " + 
+        geoName +
+        "</p>" +
+        "<div id='map-window'>You Beat the Sweeper!</div>";
+
+      // Detects if geolocation is in the polygon
+      var point = new google.maps.LatLng(34.0591149, -118.4411627);
+
+      if (google.maps.geometry.poly.containsLocation( point, route14P198 )) {
+        console.log("This is in the polygon");
+
+        // Call the Street Sweeping API
+
+        // Grab route property of polygon and puts it in a variable
+        var searchInput = route14P198.route;
+        var queryURL = "https://data.lacity.org/resource/x8i3-2x54.json?$q=" + searchInput;
+
+        $.ajax({
+          url: queryURL,
+          type: "GET",
+          data: {
+            "$limit" : 5000,
+            "$$app_token" : "aWDcPjXSGOOSmKIk1wuZzfykV"
+          }
+        }).done(function(data) {
+
+          $(document).find("#map-window").empty();
+
+          for ( var i = 0; i < data.length; i++) {
+            var boundaries = data[i].boundaries;
+            var councilDistrict = data[i].cd;
+            var routeNo = data[i].route_no;
+            var timeEnd = data[i].time_end;
+            var timeStart = data[i].time_start;
+            
+            var resultDiv = $("<div>");
+            resultDiv.html(
+              "<p><strong>Boundaries:</strong> " + boundaries + "<br />" + 
+              "<strong>Council District:</strong> " + councilDistrict + "<br />" + 
+              "<strong>Route Number:</strong> " + routeNo + "<br />" + 
+              "<strong>Time:</strong> " + timeStart + " to " + timeEnd + "</p>"
+            );
+
+            $(document).find("#map-window").append(resultDiv);
+          }
+        });
+      }
+      else {
+        console.log("You beat the sweeper!");
+      }
+
+      console.log("curPosition content : " + JSON.stringify(point));
+
       console.log("Latitude: " + position.coords.latitude);
       console.log("Longitude: " + position.coords.longitude);
 
       infoWindow.setPosition(pos);
-      infoWindow.setContent(geoName);
+      infoWindow.setContent(contentString);
       infoWindow.open(map);
       map.setCenter(pos);
     }, function() {
