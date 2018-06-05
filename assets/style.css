@@ -23,6 +23,10 @@
     -moz-transition: all .5s ease;
 }
 
+.gmnoprint {
+    display: none;
+}
+
 /* -----------------------------------
 	Search
 ----------------------------------- */

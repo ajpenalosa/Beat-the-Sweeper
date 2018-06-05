@@ -6,6 +6,7 @@ var contentWindowDiv = $("#content-window");
 contentWindowWrapper.hide();
 
 var geoName = "";
+
 // Google Sign-In
 function onSignIn(googleUser) {
   // Useful data for your client-side scripts:
@@ -85,25 +86,35 @@ function signOut() {
 
 // Geolocation Map
 
-
-
 var map, infoWindow;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -34.397, lng: 150.644},
-    zoom: 16
+    zoom: 15
   });
 
   console.log("This is the google map");
   console.log(google.maps);
-
+  
+  // Manually creating polygon
   // Define the LatLng coordinates for the polygon's path.
   var route14P198Coordinates = [
-    {lat: 34.05991, lng: -118.44343},
-    {lat: 34.06147, lng: -118.43815},
-    {lat: 34.05095, lng: -118.43403},
-    {lat: 34.04974, lng: -118.43699},
-    {lat: 34.05991, lng: -118.44343}
+    {lat: 34.0614769, lng: -118.4381533},
+    {lat: 34.0605526, lng: -118.441844},
+    {lat: 34.0599126, lng: -118.4434319},
+    {lat: 34.0594504, lng: -118.4429169},
+    {lat: 34.0585971, lng: -118.4422731},
+    {lat: 34.0573527, lng: -118.4421444},
+    {lat: 34.0569972, lng: -118.442874},
+    {lat: 34.0562505, lng: -118.4424019},
+    {lat: 34.0497437, lng: -118.4369946},
+    {lat: 34.0509527, lng: -118.4340334},
+    {lat: 34.0556461, lng: -118.4379816},
+    {lat: 34.0562861, lng: -118.4370804},
+    {lat: 34.0576727, lng: -118.4369516},
+    {lat: 34.0587038, lng: -118.4374666},
+    {lat: 34.0602681, lng: -118.4379816},
+    {lat: 34.0614769, lng: -118.4381533}
   ];
 
   // Route 14P198
@@ -113,26 +124,41 @@ function initMap() {
     strokeOpacity: 0.8,
     strokeWeight: 2,
     fillColor: '#FF0000',
-    fillOpacity: 0.35,
+    fillOpacity: 0,
     route: "14P198"
   });
 
   route14P198.setMap(map);
 
-  // Click event listener on polygon
-  google.maps.event.addListener(route14P198, 'click', function (event) {
+  // Importing route polygons
+  map.data.loadGeoJson('assets/routes.json');
+
+  console.log("This is map.data");
+  console.log(map.data);
+
+  console.log("This is the google map after importing the polygons");
+  console.log(google.maps);
+
+  // When the user clicks display results to the right side of the map
+  map.data.addListener('click', function(event) {
+
+    // Empties content window
+    contentWindowDiv.empty();
+
+    console.log("This is the event");
+    console.log(event);
 
     // Shows content wrapper for results
     contentWindowWrapper.show();
     // Changes class of map wrapper
     mapWrapper.removeClass("col-sm-12").addClass("col-sm-8");
 
-    // Call the Street Sweeping API
-
     // Grab route property of polygon and puts it in a variable
-    var searchInput = $(this)[0].route;
+    var searchInput = event.feature.getProperty('Route');
+    console.log("This is the route number: " + searchInput);
     var queryURL = "https://data.lacity.org/resource/x8i3-2x54.json?$q=" + searchInput;
 
+    // Call the Street Sweeping API
     $.ajax({
       url: queryURL,
       type: "GET",
@@ -162,38 +188,16 @@ function initMap() {
     });
 
   }); // End of event listener
-  map.data.loadGeoJson('assets/venice.json');
-  map.data.loadGeoJson('assets/route14p198.json');
-  map.data.loadGeoJson('assets/councilDist.json');
-  map.data.loadGeoJson('assets/route14p283.json');
-  map.data.loadGeoJson('assets/route14p357.json');
-  map.data.loadGeoJson('assets/route14p101.json');
 
-
-
-  $.ajax({
-    url: "assets/venice.json",
-    method: "GET",
-    dataType: "json"
-  }).then(function(response) { 
-    console.log(response);   
-    
+  // When the user hovers, tempt them to click by outlining the letters.
+  map.data.addListener('mouseover', function(event) {
+    map.data.revertStyle();
+    map.data.overrideStyle(event.feature, {strokeWeight: 4,fillOpacity: 0.6});
   });
 
-  
-  // map.data.loadGeoJson(response);
-
-  function venice_callback(response) {
-    map.data.addGeoJson(response);
-  }
-
-
-
-  // var laLayer = new google.maps.KmlLayer({
-  //   url: 'http://www.google.com/maps/d/u/0/kml?forcekml=1&mid=1j1pOv1RxL5JX39nJcJChL5YwZbt-lvBX',
-  //   preserveViewport: true,
-  //   map: map
-  // });
+  map.data.addListener('mouseout', function(event) {
+    map.data.revertStyle();
+  });
 
   infoWindow = new google.maps.InfoWindow;
 
@@ -255,8 +259,6 @@ function initMap() {
       else {
         console.log("You beat the sweeper!");
       }
-
-      console.log("curPosition content : " + JSON.stringify(point));
 
       console.log("Latitude: " + position.coords.latitude);
       console.log("Longitude: " + position.coords.longitude);
