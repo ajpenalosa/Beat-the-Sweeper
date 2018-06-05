@@ -85,6 +85,8 @@ function signOut() {
 
 // Geolocation Map
 
+
+
 var map, infoWindow;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
@@ -160,6 +162,38 @@ function initMap() {
     });
 
   }); // End of event listener
+  map.data.loadGeoJson('assets/venice.json');
+  map.data.loadGeoJson('assets/route14p198.json');
+  map.data.loadGeoJson('assets/councilDist.json');
+  map.data.loadGeoJson('assets/route14p283.json');
+  map.data.loadGeoJson('assets/route14p357.json');
+  map.data.loadGeoJson('assets/route14p101.json');
+
+
+
+  $.ajax({
+    url: "assets/venice.json",
+    method: "GET",
+    dataType: "json"
+  }).then(function(response) { 
+    console.log(response);   
+    
+  });
+
+  
+  // map.data.loadGeoJson(response);
+
+  function venice_callback(response) {
+    map.data.addGeoJson(response);
+  }
+
+
+
+  // var laLayer = new google.maps.KmlLayer({
+  //   url: 'http://www.google.com/maps/d/u/0/kml?forcekml=1&mid=1j1pOv1RxL5JX39nJcJChL5YwZbt-lvBX',
+  //   preserveViewport: true,
+  //   map: map
+  // });
 
   infoWindow = new google.maps.InfoWindow;
 
