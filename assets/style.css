@@ -1,3 +1,204 @@
+/* -----------------------------------
+
+    Colors
+
+    #AEA786 = Light Brown
+    #8D9079 = Darker Brown
+    #629546 = Light Green
+    #2B5734 = Dark Green
+    #368C96 = Light Blue
+
+    ----------------------
+
+    Sizes
+
+    30px = 1.667em
+    27px = 1.5em
+    24px = 1.333em
+    22px = 1.222em
+    18px = 1em
+    14px = 0.778em
+
+----------------------------------- */
+
+/* -----------------------------------
+	Typography
+----------------------------------- */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Open+Sans:400,700');
+
+body {
+    font-family: "Open Sans", Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat", Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 1.667em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.333em;
+}
+
+h4 {
+    font-size: 1.222em;
+}
+
+h5 {
+    font-size: 1em;
+}
+
+h6 {
+    font-size: 0.778em;
+}
+
+p {
+    line-height: 1.8em;
+    margin-bottom: 20px;
+}
+
+a {
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+}
+
+
+/* -----------------------------------
+	Global
+----------------------------------- */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #AEA786;
+}
+
+.btn-primary {
+    font-family: "Montserrat", Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: 700;
+    color: #fff;
+    background-color: #368C96;
+    border: 0;
+    text-transform: uppercase;
+    padding: 10px 30px;
+}
+
+.btn-primary:hover {
+    background-color: rgb(35, 97, 104);
+}
+
+/* -----------------------------------
+	Nav Bar
+----------------------------------- */
+
+.bg-dark-custom {
+    background-color: #20272d;
+}
+
+/*---------- Logo ----------*/
+
+a.navbar-brand {
+    font-family: "Montserrat", Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 1.6em;
+    line-height: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: 300px;
+}
+
+a.navbar-brand .fa-car {
+    font-size: 2.2em;
+    line-height: 0.87em;
+    float: left;
+    color: #368C96;
+}
+
+.beat-the {
+    float: left;
+    margin-left: 10px;
+}
+
+.sweeper {
+    float: left;
+    margin-left: 10px;
+}
+
+/*---------- Links ----------*/
+
+.navbar-dark .navbar-nav a.nav-link {
+    font-family: "Montserrat", Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: 600;
+    color: rgba(255,255,255,.8);
+    text-transform: uppercase;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+}
+
+.navbar-dark .navbar-nav a.nav-link:hover {
+    color: #629546;
+}
+
+.google-sign-in {
+    padding-left: 20px;
+}
+
+/* -----------------------------------
+	Footer
+----------------------------------- */
+
+/*---------- Footer Push ----------*/
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by its height */
+    margin: 0 auto -60px;
+    /* Pad bottom by footer height */
+    padding: 0 0 60px;
+}
+
+footer {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 0.778em;
+    color: rgba(255,255,255,.8);
+    background-color: #20272d;
+}
+
+/* -----------------------------------
+	Home
+----------------------------------- */
+
+body.home .jumbotron {
+    border-radius: 0;
+    background-image: url("../images/home-background.jpg");
+    color: rgba(255,255,255,.8);
+}
+
+body.home .jumbotron h1 {
+    color: #629546;
+    text-transform: uppercase;
+}
+
+/* -----------------------------------
+	Dashboard
+----------------------------------- */
+
 .dashboard-message,
 .dashboard {
     padding-top: 60px;
@@ -30,3 +231,30 @@
 /* -----------------------------------
 	Search
 ----------------------------------- */
+
+/* -----------------------------------
+	Media Queries
+--------------------------------------------------------------------------------------------- */
+
+/* Extra small devices (portrait phones, less than 576px) */
+/* No media query for `xs` since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    
+}
