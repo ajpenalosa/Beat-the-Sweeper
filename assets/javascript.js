@@ -1,3 +1,10 @@
+var contentWindowWrapper = $("#content-window-wrapper");
+var mapWrapper = $("#map-wrapper");
+var mapDiv = $("#map");
+var contentWindowDiv = $("#content-window");
+
+contentWindowWrapper.hide();
+
 var geoName = "";
 // Google Sign-In
 function onSignIn(googleUser) {
@@ -85,6 +92,9 @@ function initMap() {
     zoom: 16
   });
 
+  console.log("This is the google map");
+  console.log(google.maps);
+
   // Define the LatLng coordinates for the polygon's path.
   var route14P198Coordinates = [
     {lat: 34.05991, lng: -118.44343},
@@ -101,9 +111,55 @@ function initMap() {
     strokeOpacity: 0.8,
     strokeWeight: 2,
     fillColor: '#FF0000',
-    fillOpacity: 0.35
+    fillOpacity: 0.35,
+    route: "14P198"
   });
+
   route14P198.setMap(map);
+
+  // Click event listener on polygon
+  google.maps.event.addListener(route14P198, 'click', function (event) {
+
+    // Shows content wrapper for results
+    contentWindowWrapper.show();
+    // Changes class of map wrapper
+    mapWrapper.removeClass("col-sm-12").addClass("col-sm-8");
+
+    // Call the Street Sweeping API
+
+    // Grab route property of polygon and puts it in a variable
+    var searchInput = $(this)[0].route;
+    var queryURL = "https://data.lacity.org/resource/x8i3-2x54.json?$q=" + searchInput;
+
+    $.ajax({
+      url: queryURL,
+      type: "GET",
+      data: {
+        "$limit" : 5000,
+        "$$app_token" : "aWDcPjXSGOOSmKIk1wuZzfykV"
+      }
+    }).done(function(data) {
+
+      for ( var i = 0; i < data.length; i++) {
+        var boundaries = data[i].boundaries;
+        var councilDistrict = data[i].cd;
+        var routeNo = data[i].route_no;
+        var timeEnd = data[i].time_end;
+        var timeStart = data[i].time_start;
+        
+        var resultDiv = $("<div>");
+        resultDiv.html(
+          "<p><strong>Boundaries:</strong> " + boundaries + "<br />" + 
+          "<strong>Council District:</strong> " + councilDistrict + "<br />" + 
+          "<strong>Route Number:</strong> " + routeNo + "<br />" + 
+          "<strong>Time:</strong> " + timeStart + " to " + timeEnd + "</p>"
+        );
+
+        contentWindowDiv.append(resultDiv);
+      }
+    });
+
+  }); // End of event listener
 
   infoWindow = new google.maps.InfoWindow;
 
@@ -141,28 +197,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 // Load jQuery when document is ready
 $(document).ready(function() {
-
-  // Street Sweeping API
-  $.ajax({
-    url: "https://data.lacity.org/resource/x8i3-2x54.json",
-    type: "GET",
-    data: {
-      "$limit" : 5000,
-      "$$app_token" : "aWDcPjXSGOOSmKIk1wuZzfykV"
-    }
-  }).done(function(data) {
-    console.log(data);
-  });
-
-  window.onload = function() {
-    // Check to see if the browser supports the GeoLocation API.
-    if (navigator.geolocation) {
-
-    } else {
-      // Print out a message to the user.
-      document.write('Your browser does not support GeoLocation');
-    }
-  }
 
   // Search Page
   $("#search-submit").on("click", function(event) {

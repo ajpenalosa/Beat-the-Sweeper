@@ -7,13 +7,20 @@
 	Google Map
 ----------------------------------- */
 
-.map-wrapper {
+.map-section {
     padding-top: 40px;
 }
 
 #map {
     width: 100%;
     height: 600px;
+}
+
+#content-window-wrapper,
+#map-wrapper {
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
 }
 
 /* -----------------------------------

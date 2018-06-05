@@ -65,15 +65,13 @@
         </section> <!-- /dashboard-message -->
 
         <div class="dashboard"></div>
-        <div class="googleMap">
-    
 
-        </div>
-
-        <section class="map-wrapper">
+        <section class="map-section">
             <div class="row">
-                <div class="col-sm-12">
+                <div id="map-wrapper" class="col-sm-12">
                     <div id="map"></div>
+                </div>
+                <div id="content-window-wrapper" class="col-sm-4">
                     <div id="content-window"></div>
                 </div>
             </div>
@@ -89,7 +87,7 @@
 
     <!-- Google Maps -->
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAukbl8htJlAWFaLaIv4UC-wJ54RzgZtRs&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAukbl8htJlAWFaLaIv4UC-wJ54RzgZtRs&callback=initMap&libraries=geometry">
     </script>
 
     <!-- JavaScript -->
