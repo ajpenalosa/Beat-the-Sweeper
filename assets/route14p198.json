@@ -1,0 +1,258 @@
+{
+    "type": "FeatureCollection",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Rt.14P198\/Point 1\/Parameter",
+                "description": "Lindbrook Dr. to Santa Monica Bl. \/ Selby Av. to Westwood Bl. | M\/T 8am-10am",
+                "timestamp": null,
+                "begin": null,
+                "end": null,
+                "altitudeMode": null,
+                "tessellate": -1,
+                "extrude": 0,
+                "visibility": -1,
+                "drawOrder": null,
+                "icon": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -118.4381533,
+                    34.0614769,
+                    0.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Rt.14P198\/Point 2\/Parameter",
+                "description": "Lindbrook Dr. to Santa Monica Bl. \/ Selby Av. to Westwood Bl. | M\/T 8am-10am",
+                "timestamp": null,
+                "begin": null,
+                "end": null,
+                "altitudeMode": null,
+                "tessellate": -1,
+                "extrude": 0,
+                "visibility": -1,
+                "drawOrder": null,
+                "icon": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -118.4340334,
+                    34.0509527,
+                    0.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Rt.14P198\/Point 3\/Parameter",
+                "description": "Lindbrook Dr. to Santa Monica Bl. \/ Selby Av. to Westwood Bl. | M\/T 8am-10am",
+                "timestamp": null,
+                "begin": null,
+                "end": null,
+                "altitudeMode": null,
+                "tessellate": -1,
+                "extrude": 0,
+                "visibility": -1,
+                "drawOrder": null,
+                "icon": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -118.4369946,
+                    34.0497437,
+                    0.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Rt.14P198\/Point 4\/Parameter",
+                "description": "Lindbrook Dr. to Santa Monica Bl. \/ Selby Av. to Westwood Bl. | M\/T 8am-10am",
+                "timestamp": null,
+                "begin": null,
+                "end": null,
+                "altitudeMode": null,
+                "tessellate": -1,
+                "extrude": 0,
+                "visibility": -1,
+                "drawOrder": null,
+                "icon": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -118.4434319,
+                    34.0599126,
+                    0.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Rt.14P198 - Parameter-Polygon",
+                "description": "Westwood - Lindbrook Dr. to Santa Monica Bl. \/ Selby Av. to Westwood Bl. | M\/T 8am-10am",
+                "timestamp": null,
+                "begin": null,
+                "end": null,
+                "altitudeMode": null,
+                "tessellate": -1,
+                "extrude": 0,
+                "visibility": -1,
+                "drawOrder": null,
+                "icon": null
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -118.4381533,
+                            34.0614769,
+                            0.0
+                        ],
+                        [
+                            -118.441844,
+                            34.0605526,
+                            0.0
+                        ],
+                        [
+                            -118.4434319,
+                            34.0599126,
+                            0.0
+                        ],
+                        [
+                            -118.4429169,
+                            34.0594504,
+                            0.0
+                        ],
+                        [
+                            -118.4422731,
+                            34.0585971,
+                            0.0
+                        ],
+                        [
+                            -118.4421444,
+                            34.0573527,
+                            0.0
+                        ],
+                        [
+                            -118.442874,
+                            34.0569972,
+                            0.0
+                        ],
+                        [
+                            -118.4424019,
+                            34.0562505,
+                            0.0
+                        ],
+                        [
+                            -118.4369946,
+                            34.0497437,
+                            0.0
+                        ],
+                        [
+                            -118.4340334,
+                            34.0509527,
+                            0.0
+                        ],
+                        [
+                            -118.4379816,
+                            34.0556461,
+                            0.0
+                        ],
+                        [
+                            -118.4370804,
+                            34.0562861,
+                            0.0
+                        ],
+                        [
+                            -118.4369516,
+                            34.0576727,
+                            0.0
+                        ],
+                        [
+                            -118.4374666,
+                            34.0587038,
+                            0.0
+                        ],
+                        [
+                            -118.4379816,
+                            34.0602681,
+                            0.0
+                        ],
+                        [
+                            -118.4381533,
+                            34.0614769,
+                            0.0
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Rt.14P198\/Point 5",
+                "description": "Lindbrook Dr. to Santa Monica Bl. \/ Selby Av. to Westwood Bl. | M\/T 8am-10am",
+                "timestamp": null,
+                "begin": null,
+                "end": null,
+                "altitudeMode": null,
+                "tessellate": -1,
+                "extrude": 0,
+                "visibility": -1,
+                "drawOrder": null,
+                "icon": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -118.442874,
+                    34.0569972,
+                    0.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Rt.14P198\/Point 6",
+                "description": "Lindbrook Dr. to Santa Monica Bl. \/ Selby Av. to Westwood Bl. | M\/T 8am-10am",
+                "timestamp": null,
+                "begin": null,
+                "end": null,
+                "altitudeMode": null,
+                "tessellate": -1,
+                "extrude": 0,
+                "visibility": -1,
+                "drawOrder": null,
+                "icon": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -118.4379816,
+                    34.0556461,
+                    0.0
+                ]
+            }
+        }
+    ]
+}
