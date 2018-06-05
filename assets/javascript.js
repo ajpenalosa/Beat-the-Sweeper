@@ -177,7 +177,6 @@ function initMap() {
     dataType: "json"
   }).then(function(response) { 
     console.log(response);   
-    
   });
 
   
