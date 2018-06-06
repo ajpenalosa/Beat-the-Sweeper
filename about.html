@@ -13,6 +13,9 @@
     <!-- Bootstrap 4.1.1 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
     <!-- Google Sign-In -->
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="864700531569-fohanr8ulu0lhh9g54h7shetkpvt1fea.apps.googleusercontent.com">
@@ -24,64 +27,82 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="search.html">Search</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="dashboard.html">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact Us</a>
-          </li>
-          <li class="nav-item sign-out-link">
-            <a class="nav-link"  href="#" onclick="signOut();">Sign out</a>
-          </li>
-        </ul>
-        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+  <div class="wrapper">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-custom">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"><i class="fas fa-car"></i> <span class="beat-the">Beat the</span> <span class="sweeper">Sweeper</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="search.html">Search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact Us</a>
+            </li>
+            <li class="nav-item sign-out-link">
+              <a class="nav-link"  href="#" onclick="signOut();">Sign out</a>
+            </li>
+            <li class="nav-item google-sign-in">
+              <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+            </li>
+          </ul>
+        </div>
+      </div> <!-- /container -->
+    </nav>
+
+    <div class="page-title">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1>About Us</h1>
+          </div>
+        </div>
       </div>
-    </div> <!-- /container -->
-  </nav>
+    </div>
 
-  <div class="jumbotron">
-    
-    <div class="container">
+    <section class="page-header about-section">
 
-      <div class="row">
+      <div class="container">
 
-        <div class="col-md-6">
+        <div class="row">
 
-          <img src="./images/sweeper.png" alt="Street Sweeper" class="img-fluid" />
+          <div class="col-12">
 
-        </div> <!-- /column -->
+            <div class="about-text text-center">
 
-        <div class="col-md-6">
-          
-          <h1>Beat the Sweeper</h1>
+              <p>Beat the Sweeper was conceived and designed by 3 UCLA Coding Bootcamp students in 2018.  We hope this site can be a useful addition to our users lives.  Our site works by saving a user's current location and comparing it to the dates, times, and locations of the cities posted street-sweeping routes.  This information is stored securely and never shared with any outside parties.</p>
 
-          <p>Beat The Sweeper was conceived and designed by 3 UCLA Coding Bootcamp students in 2018.  We hope this site can be a useful addition to our users lives.  Our site works by saving a user's current location and comparing it to the dates, times, and locations of the cities posted street-sweeping routes.  This information is stored securely and never shared with any outside parties.</p>
+            </div>
 
-          <p><button class="btn btn-primary">Learn More</button></p>
 
-        </div> <!-- /column -->
+          </div> <!-- /column -->
 
-      </div> <!-- /row -->
+        </div> <!-- /row -->
 
-    </div> <!-- /container -->
+      </div> <!-- /container -->
 
-  </div> <!-- /Jumbotron -->
+    </section>
+
+  </div> <!-- /wrapper -->
+
+  <footer>
+
+      &copy; Copyright 2018 <span>|</span> Beat the Sweeper <span>|</span> All Rights Reserved.
+
+  </footer>
   
   <!-- firebase  -->
   <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
@@ -98,7 +119,6 @@
     firebase.initializeApp(config);
   </script>
 
-
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -107,13 +127,6 @@
 
   <!-- JavaScript -->
   <script type="text/JavaScript" src="assets/javascript.js"></script>
- 
-
-
-
-  </body>
-
-
 
 </body>
 </html>

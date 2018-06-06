@@ -124,7 +124,7 @@ function initMap() {
   var route14P198 = new google.maps.Polygon({
     paths: route14P198Coordinates,
     strokeColor: '#FF0000',
-    strokeOpacity: 0.8,
+    strokeOpacity: 0,
     strokeWeight: 2,
     fillColor: '#FF0000',
     fillOpacity: 0,
@@ -141,6 +141,13 @@ function initMap() {
 
   console.log("This is the google map after importing the polygons");
   console.log(google.maps);
+
+  $(".close-window").on("click", function() {
+    // Hides content wrapper for results
+    contentWindowWrapper.hide();
+    // Changes class of map wrapper
+    mapWrapper.removeClass("col-sm-8").addClass("col-sm-12");
+  });
 
   // When the user clicks display results to the right side of the map
   map.data.addListener('click', function(event) {
@@ -192,10 +199,17 @@ function initMap() {
 
   }); // End of event listener
 
+  $("#info-box").on("click", ".close-window", function() {
+    $("#info-box").animate({left: "-200px"});
+  });
+
   // When the user hovers, tempt them to click by outlining the letters.
   map.data.addListener('mouseover', function(event) {
+    $("#info-box").show();
     map.data.revertStyle();
-    map.data.overrideStyle(event.feature, {strokeWeight: 4,fillOpacity: 0.6});
+    map.data.overrideStyle(event.feature, {fillColor: "#CF0000", strokeWeight: 4,fillOpacity: 0.6});
+    $("#map").append($("#info-box"));
+    $("#info-box").html("<i class='fas fa-times-circle close-window'></i><p><strong>Route #:</strong> " + event.feature.getProperty('Route')).animate({left: "40px"});
   });
 
   map.data.addListener('mouseout', function(event) {
@@ -311,6 +325,10 @@ $(document).ready(function() {
       console.log(data);
       console.log(data[0].boundaries);
 
+      var numberOfResults = $("<div class='results-message'>").html("<h2>" + data.length + " Results</h2>");
+
+      $(".search-results").append(numberOfResults);
+
       for ( var i = 0; i < data.length; i++) {
         var boundaries = data[i].boundaries;
         var councilDistrict = data[i].cd;
@@ -318,7 +336,7 @@ $(document).ready(function() {
         var timeEnd = data[i].time_end;
         var timeStart = data[i].time_start;
         
-        var resultDiv = $("<div>");
+        var resultDiv = $("<div class='search-item'>");
         resultDiv.html(
           "<p><strong>Boundaries:</strong> " + boundaries + "<br />" + 
           "<strong>Council District:</strong> " + councilDistrict + "<br />" + 

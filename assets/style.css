@@ -2,11 +2,29 @@
 
     Colors
 
-    #AEA786 = Light Brown
-    #8D9079 = Darker Brown
-    #629546 = Light Green
-    #2B5734 = Dark Green
-    #368C96 = Light Blue
+    Light Brown
+    #AEA786
+    rgba(174, 167, 134, 1)
+
+    Darker Brown
+    #8D9079
+    rgba(141, 144, 121, 1)
+
+    Light Green
+    #629546
+    rgba(35, 97, 104, 1)
+
+    Dark Green
+    #2B5734
+    rgba(98, 149, 70, 1)
+
+    Light Blue
+    #368C96
+    rgba(54, 140, 150, 1)
+
+    Dark Blue
+    #1f5062
+    rgba(31, 80, 98, 1)
 
     ----------------------
 
@@ -35,6 +53,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: "Montserrat", Arial, 'Helvetica Neue', Helvetica, sans-serif;
     font-weight: 700;
+    text-transform: uppercase;
 }
 
 h1 {
@@ -100,6 +119,37 @@ body {
     background-color: rgb(35, 97, 104);
 }
 
+.btn-secondary {
+    font-family: "Montserrat", Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: 700;
+    color: #fff;
+    background-color: #2B5734;
+    border: 0;
+    text-transform: uppercase;
+    padding: 10px 30px;
+}
+
+.btn-secondary:hover {
+    background-color: #629546;
+}
+
+section {
+    padding: 3em 0;
+}
+
+/*---------- Page Titles ----------*/
+
+.page-title {
+    background-color: #1f5062;
+    color: rgba(255,255,255,.8);
+    padding: 2em;
+}
+
+.page-title h1 {
+    border-left: 5px solid #629546;
+    padding: 4px 0 4px 20px;
+}
+
 /* -----------------------------------
 	Nav Bar
 ----------------------------------- */
@@ -156,43 +206,86 @@ a.navbar-brand .fa-car {
 }
 
 /* -----------------------------------
-	Footer
+	Forms
 ----------------------------------- */
 
-/*---------- Footer Push ----------*/
-.wrapper {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    /* Negative indent footer by its height */
-    margin: 0 auto -60px;
-    /* Pad bottom by footer height */
-    padding: 0 0 60px;
-}
-
-footer {
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    text-align: center;
-    font-size: 0.778em;
-    color: rgba(255,255,255,.8);
-    background-color: #20272d;
+.form-control {
+    border: 0;
+    padding: 10px 20px;
 }
 
 /* -----------------------------------
 	Home
 ----------------------------------- */
 
+/*---------- Jumbotron ----------*/
+
 body.home .jumbotron {
     border-radius: 0;
     background-image: url("../images/home-background.jpg");
     color: rgba(255,255,255,.8);
+    margin-bottom: 0;
 }
 
 body.home .jumbotron h1 {
     color: #629546;
     text-transform: uppercase;
+}
+
+body.home .jumbotron .btn-secondary {
+    margin-right: 1em;
+}
+
+/*---------- Call to Action Section ----------*/
+
+.cta-column i.fas {
+    font-size: 5em;
+    margin-bottom: 10px;
+    color: #1f5062;
+}
+
+.cta-item {
+    padding-bottom: 40px;
+}
+
+/*---------- Testimonials ----------*/
+
+.testimonials {
+    background-color: #1f5062;
+    color: rgba(255,255,255,.8);
+}
+
+.testimonial {
+    padding: 40px 0;
+}
+
+.occupation {
+    font-size: 0.8em;
+}
+
+/* -----------------------------------
+	About Page
+----------------------------------- */
+
+.about-section {
+    padding-top: 280px;
+    padding-left: 80px;
+    margin-right: 40px;
+    color: #FFF;
+    background-image:
+    linear-gradient(180deg, rgba(31, 80, 98, 0.2) 0%,rgba(31, 80, 98, 0.9) 100%),
+    url("../images/students.jpg");
+    background-size: cover;
+    background-position: left top;
+    border-radius: 0 0 200px 0;
+    border-color: #0ee1f4;
+    border-right-width: 2vw;
+
+    box-shadow: 20px 0px 0px 0px rgba(31, 80, 98, 0.5);
+}
+
+.about-text p {
+    font-size: 1.222em;
 }
 
 /* -----------------------------------
@@ -217,20 +310,89 @@ body.home .jumbotron h1 {
     height: 600px;
 }
 
-#content-window-wrapper,
-#map-wrapper {
+.gmnoprint {
+    display: none;
+}
+
+#info-box {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(31, 80, 98, 1);
+    padding: 20px;
+    border-radius: 10px;
+    left: -200px;
+    bottom: 40px;
     transition: all .5s ease;
     -webkit-transition: all .5s ease;
     -moz-transition: all .5s ease;
 }
+#info-box .close-window {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #FFF;
+}
+#info-box p {
+    margin: 0;
+    color: #FFF;
+}
 
-.gmnoprint {
-    display: none;
+.close-window:hover {
+    color: rgb(155, 0, 0);
+    cursor: pointer;
+}
+
+#info-box .close-window:hover {
+    color: rgb(255, 0, 0);
 }
 
 /* -----------------------------------
 	Search
 ----------------------------------- */
+
+.results-message {
+    padding-top: 40px;
+    margin-bottom: 40px;
+}
+
+.results-message h2 {
+    border-bottom: 5px solid #2B5734;
+    padding-bottom: 10px;
+}
+
+.search-item {
+    padding: 30px 0;
+    border-bottom: 1px solid rgba( 255, 255, 255, 0.5 );
+}
+.search-item:last-of-type {
+    border: 0;
+}
+
+/* -----------------------------------
+	Footer
+----------------------------------- */
+
+/*---------- Footer Push ----------*/
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by its height */
+    margin: 0 auto -60px;
+    /* Pad bottom by footer height */
+    padding: 0 0 60px;
+}
+
+footer {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 0.778em;
+    color: rgba(255,255,255,.8);
+    background-color: #20272d;
+}
 
 /* -----------------------------------
 	Media Queries
