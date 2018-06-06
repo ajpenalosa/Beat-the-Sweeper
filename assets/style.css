@@ -310,15 +310,41 @@ body.home .jumbotron .btn-secondary {
     height: 600px;
 }
 
-#content-window-wrapper,
-#map-wrapper {
+.gmnoprint {
+    display: none;
+}
+
+#info-box {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(31, 80, 98, 1);
+    padding: 20px;
+    border-radius: 10px;
+    left: -200px;
+    bottom: 40px;
     transition: all .5s ease;
     -webkit-transition: all .5s ease;
     -moz-transition: all .5s ease;
 }
+#info-box .close-window {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #FFF;
+}
+#info-box p {
+    margin: 0;
+    color: #FFF;
+}
 
-.gmnoprint {
-    display: none;
+.close-window:hover {
+    color: rgb(155, 0, 0);
+    cursor: pointer;
+}
+
+#info-box .close-window:hover {
+    color: rgb(255, 0, 0);
 }
 
 /* -----------------------------------
