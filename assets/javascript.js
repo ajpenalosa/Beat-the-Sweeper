@@ -308,6 +308,10 @@ $(document).ready(function() {
       console.log(data);
       console.log(data[0].boundaries);
 
+      var numberOfResults = $("<div class='results-message'>").html("<h2>" + data.length + " Results</h2>");
+      
+      $(".search-results").append(numberOfResults);
+
       for ( var i = 0; i < data.length; i++) {
         var boundaries = data[i].boundaries;
         var councilDistrict = data[i].cd;
@@ -315,7 +319,7 @@ $(document).ready(function() {
         var timeEnd = data[i].time_end;
         var timeStart = data[i].time_start;
         
-        var resultDiv = $("<div>");
+        var resultDiv = $("<div class='search-item'>");
         resultDiv.html(
           "<p><strong>Boundaries:</strong> " + boundaries + "<br />" + 
           "<strong>Council District:</strong> " + councilDistrict + "<br />" + 
