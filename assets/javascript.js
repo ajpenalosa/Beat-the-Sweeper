@@ -5,6 +5,8 @@ var contentWindowDiv = $("#content-window");
 
 contentWindowWrapper.hide();
 
+
+
 var geoName = "";
 
 // Google Sign-In
@@ -21,7 +23,8 @@ function onSignIn(googleUser) {
   var id_token = googleUser.getAuthResponse().id_token;
   console.log("ID Token: " + id_token);
   console.log(profile);
-
+  
+ 
   geoName = profile.getName();
 
   // Dashboard

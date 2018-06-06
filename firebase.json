@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "BTSassets",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -9,8 +9,18 @@
     "rewrites": [
       {
         "source": "**",
-        "destination": "/index.html"
+        "destination": "index.html"
       }
     ]
+  },
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
   }
 }
