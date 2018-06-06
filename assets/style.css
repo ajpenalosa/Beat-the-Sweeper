@@ -96,6 +96,10 @@ a:hover {
     color: #2B5734;
 }
 
+.navbar-dark .navbar-brand:focus, .navbar-dark .navbar-brand:hover {
+    color: #2B5734;
+}
+
 
 /* -----------------------------------
 	Global
