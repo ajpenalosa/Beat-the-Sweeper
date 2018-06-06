@@ -86,9 +86,14 @@ p {
 }
 
 a {
+    color: #2B5734;
     transition: all .5s ease;
     -webkit-transition: all .5s ease;
     -moz-transition: all .5s ease;
+}
+
+a:hover {
+    color: #2B5734;
 }
 
 

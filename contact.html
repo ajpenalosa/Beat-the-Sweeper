@@ -13,6 +13,9 @@
     <!-- Bootstrap 4.1.1 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
     <!-- Google Sign-In -->
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="864700531569-fohanr8ulu0lhh9g54h7shetkpvt1fea.apps.googleusercontent.com">
@@ -24,95 +27,103 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="search.html">Search</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="dashboard.html">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact Us</a>
-          </li>
-          <li class="nav-item sign-out-link">
-            <a class="nav-link"  href="#" onclick="signOut();">Sign out</a>
-          </li>
-        </ul>
-        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-      </div>
-    </div> <!-- /container -->
-  </nav>
+  <div class="wrapper">
+  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><i class="fas fa-car"></i> <span class="beat-the">Beat the</span> <span class="sweeper">Sweeper</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="search.html">Search</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item sign-out-link">
+                    <a class="nav-link"  href="#" onclick="signOut();">Sign out</a>
+                    </li>
+                    <li class="nav-item google-sign-in">
+                    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                    </li>
+                </ul>
+            </div>
+        </div> <!-- /container -->
+    </nav>
+  
+    <div class="page-title">
+        <div class="container">
+            <div class="row">
+            <div class="col-12">
+                <h1>Contact Us</h1>
+            </div>
+            </div>
+        </div>
+    </div>
 
-  <div class="jumbotron">
-    
     <div class="container">
-
+      
       <div class="row">
+        <div class="col-12">
+            <p>Your input matters to us! For any questions, comments, or concerns please fill out the form below or email <a href="mailto:beatthesweeper@gmail.com">beatthesweeper@gmail.com</a>.</p>
+        </div>
+      </div>
 
-        <div class="col-md-6">
-
-          <img src="./images/sweeper.png" alt="Street Sweeper" class="img-fluid" />
-
-        </div> <!-- /column -->
-
-        <div class="col-md-6">
-
-          <p>Your input matters to us! For any questions, comments, or concerns please email beatthesweeper@gmail.com</p>
-
-        </div> <!-- /column -->
-
-      </div> <!-- /row -->
+      <div class="userForm" id="userInput">
+        <div class="row">
+          <div class="col-md-2"></div>
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">First Name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="John">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Last Name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Smith">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputAddress">Email</label>
+              <input type="email" class="form-control" id="userEmail" placeholder="example@gmail.com">
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea type="text" class="form-control" id="userMessage" rows="3" placeholder="write here..."></textarea>
+            </div>
+            <div class="form-group">
+              <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" class="form-control" id="userPhone" placeholder="xxx-xxx-xxxx">
+              </div>
+              <div id="btnSubmit">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+          </form>
+        </div>
+      </div>
 
     </div> <!-- /container -->
 
-  </div> <!-- /Jumbotron -->
+  </div> <!-- /wrapper -->
 
-  <div class="userForm" id="userInput">
-    <div class="row">
-      <div class="col-md-2"></div>
-      <form>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputEmail4">First Name</label>
-              <input type="text" class="form-control" id="firstName" placeholder="John">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputPassword4">Last Name</label>
-              <input type="text" class="form-control" id="lastName" placeholder="Smith">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputAddress">Email</label>
-            <input type="email" class="form-control" id="userEmail" placeholder="example@gmail.com">
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea type="text" class="form-control" id="userMessage" rows="3" placeholder="write here..."></textarea>
-          </div>
-          <div class="form-group">
-            <div class="form-group">
-              <label for="phoneNumber">Phone Number</label>
-              <input type="text" class="form-control" id="userPhone" placeholder="xxx-xxx-xxxx">
-            </div>
-            <div id="btnSubmit">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>    
-      <div class="col-md-2"></div>
-    </div>
-    </div>
+  <footer>
+
+      &copy; Copyright 2018 <span>|</span> Beat the Sweeper <span>|</span> All Rights Reserved.
+
+  </footer>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
@@ -185,12 +196,7 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
  }, function(errorObject) {
       console.log("Errors handled: " + errorObject.code);
     });
-
-      
     });
-   
-
-
 
   </script>
 
@@ -203,13 +209,6 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
 
   <!-- JavaScript -->
   <script type="text/JavaScript" src="assets/javascript.js"></script>
- 
-
-
-
-  </body>
-
-
 
 </body>
 </html>
