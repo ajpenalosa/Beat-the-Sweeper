@@ -17,7 +17,7 @@ limitations under the License.
 <html>
   <head>
     <title>Google Calendar API Quickstart</title>
-    <meta charset='utf-8' />
+    <meta charset='utf-8'/>
   </head>
   <body>
     <p>Google Calendar API Quickstart</p>
@@ -117,7 +117,12 @@ limitations under the License.
        * the authorized user's calendar. If no events are found an
        * appropriate message is printed.
        */
-      function listUpcomingEvents() {
+      
+      
+
+      
+      
+       function listUpcomingEvents() {
         gapi.client.calendar.events.list({
           'calendarId': 'primary',
           'timeMin': (new Date()).toISOString(),
