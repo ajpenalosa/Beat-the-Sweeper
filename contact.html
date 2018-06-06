@@ -78,78 +78,51 @@
     </div> <!-- /container -->
 
   </div> <!-- /Jumbotron -->
-  <div id="userVal"><h3>Get In Touch!</h3>
-  <form>
-      <p>
-      <label for="t0">First Name</label>
-      <br>
-      <input type="name" id="t0" name="email">
-      </p> 
-      
-      <p>
-      <label for="t1">Last Name</label>
-      <br>
-      <input type="name" id="t1" name="email">
-      </p> 
-      
-      <p>
-      <label for="t2">Email</label>
-      <br>
-      <input type="email" id="t2" name="email">
-      </p>
-       
-      <p>
-      <label for="t3">Leave a short message</label>
-      <br>
-      <textarea id="t3" name="msg" maxlength="140" rows="5"></textarea>
-      </p>
-      
-      <div>
-      <label for="telNo">Phone Number </label>
-      <br>
-      <input id="t4" name="telNo" type="tel" required
-      pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="xxx-xxx-xxxx">
-      <span class="validity"></span>
-      </div>
-    
-      <p>
-      <button id="submitButton">Submit</button>
-      </p>
-      </form>
- </div>
-<style>
-#userVal {
- width: 600px;
- margin-left:auto;
- margin-right:auto;
-}
-</style>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script>
-$("#submitButton").on("click", function(){
-  event.preventDefault();
-  
-  var firstName = $("#t0").val().trim();
-  console.log(firstName);
-  
-  var lastName = $("#t1").val().trim();
-  console.log(lastName);
-  var userEmail = $("#t2").val().trim();
-  console.log(userEmail);
-  
-  var userMessage = $("#t3").val().trim();
-  console.log(userMessage);
-  
-  var userPhone = $("#t4").val().trim();
-  console.log(userPhone)
-})
-</script>
 
+  <div class="userForm" id="userInput">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">First Name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="John">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Last Name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="Smith">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputAddress">Email</label>
+            <input type="email" class="form-control" id="userEmail" placeholder="example@gmail.com">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea type="text" class="form-control" id="userMessage" rows="3" placeholder="write here..."></textarea>
+          </div>
+          <div class="form-group">
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number</label>
+              <input type="text" class="form-control" id="userPhone" placeholder="xxx-xxx-xxxx">
+            </div>
+            <div id="btnSubmit">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>    
+      <div class="col-md-2"></div>
+    </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 <!-- firebase  -->
-  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
   <script>
-    // Initialize Firebase
+
+    $(document).ready(function(){
+
+          // Initialize Firebase
     var config = {
       apiKey: "AIzaSyDy9ctDriV6Dn1UjTCmEnAp_MYP_Ho_Ygc",
       authDomain: "beat-the-sweeper-1527875348809.firebaseapp.com",
@@ -159,6 +132,66 @@ $("#submitButton").on("click", function(){
       messagingSenderId: "864700531569"
     };
     firebase.initializeApp(config);
+
+    var database = firebase.database();
+
+  var firstName = "";
+  var lastName = "";
+  var userEmail = "";
+  var userMessage = "";
+  var userPhone = "";  
+
+  $("#btnSubmit").on("click", function(event){
+  event.preventDefault();
+
+  
+  firstName = $("#firstName").val().trim();
+  console.log(firstName);
+  
+  lastName = $("#lastName").val().trim();
+  console.log(lastName);
+  userEmail = $("#userEmail").val().trim();
+  console.log(userEmail);
+  
+  userMessage = $("#userMessage").val().trim();
+  console.log(userMessage);
+  
+  userPhone = $("#userPhone").val().trim();
+  console.log(userPhone);
+
+  database.ref().push({
+    firstName: firstName,
+    lastName: lastName,
+    userEmail: userEmail,
+    userMessage: userMessage,
+    userPhone: userPhone
+  });
+  $(".userForm").empty();
+  
+
+});
+
+
+
+database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot){
+    var sv = snapshot.val();
+
+    console.log('first', sv.firstName);
+    console.log('last', sv.lastName);
+    console.log('email', sv.userEmail);
+    console.log('message', sv.userMessage);
+    console.log('phone', sv.userPhone);
+
+ }, function(errorObject) {
+      console.log("Errors handled: " + errorObject.code);
+    });
+
+      
+    });
+   
+
+
+
   </script>
 
 
