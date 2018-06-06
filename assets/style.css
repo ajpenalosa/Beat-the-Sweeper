@@ -382,6 +382,24 @@ body.home .jumbotron .btn-secondary {
 }
 
 /* -----------------------------------
+	Contact Page
+----------------------------------- */
+
+.contact-message {
+    padding-top: 40px;
+    border-bottom: 5px solid #2B5734;
+    margin-bottom: 40px;
+}
+
+label {
+    font-weight: 700;
+}
+
+.userForm {
+    padding-bottom: 60px;
+}
+
+/* -----------------------------------
 	Footer
 ----------------------------------- */
 
