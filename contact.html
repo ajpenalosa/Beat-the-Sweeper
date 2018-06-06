@@ -78,8 +78,75 @@
     </div> <!-- /container -->
 
   </div> <!-- /Jumbotron -->
+  <div id="userVal"><h3>Get In Touch!</h3>
+  <form>
+      <p>
+      <label for="t0">First Name</label>
+      <br>
+      <input type="name" id="t0" name="email">
+      </p> 
+      
+      <p>
+      <label for="t1">Last Name</label>
+      <br>
+      <input type="name" id="t1" name="email">
+      </p> 
+      
+      <p>
+      <label for="t2">Email</label>
+      <br>
+      <input type="email" id="t2" name="email">
+      </p>
+       
+      <p>
+      <label for="t3">Leave a short message</label>
+      <br>
+      <textarea id="t3" name="msg" maxlength="140" rows="5"></textarea>
+      </p>
+      
+      <div>
+      <label for="telNo">Phone Number </label>
+      <br>
+      <input id="t4" name="telNo" type="tel" required
+      pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="xxx-xxx-xxxx">
+      <span class="validity"></span>
+      </div>
+    
+      <p>
+      <button id="submitButton">Submit</button>
+      </p>
+      </form>
+ </div>
+<style>
+#userVal {
+ width: 600px;
+ margin-left:auto;
+ margin-right:auto;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script>
+$("#submitButton").on("click", function(){
+  event.preventDefault();
   
-  <!-- firebase  -->
+  var firstName = $("#t0").val().trim();
+  console.log(firstName);
+  
+  var lastName = $("#t1").val().trim();
+  console.log(lastName);
+  var userEmail = $("#t2").val().trim();
+  console.log(userEmail);
+  
+  var userMessage = $("#t3").val().trim();
+  console.log(userMessage);
+  
+  var userPhone = $("#t4").val().trim();
+  console.log(userPhone)
+})
+</script>
+
+
+<!-- firebase  -->
   <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
   <script>
     // Initialize Firebase
