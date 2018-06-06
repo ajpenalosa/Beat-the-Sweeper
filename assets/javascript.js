@@ -193,6 +193,7 @@ function initMap() {
   map.data.addListener('mouseover', function(event) {
     map.data.revertStyle();
     map.data.overrideStyle(event.feature, {strokeWeight: 4,fillOpacity: 0.6});
+    $("#info-box").html("<p><strong>Route #:</strong> " + event.feature.getProperty('Route'));
   });
 
   map.data.addListener('mouseout', function(event) {
@@ -309,7 +310,7 @@ $(document).ready(function() {
       console.log(data[0].boundaries);
 
       var numberOfResults = $("<div class='results-message'>").html("<h2>" + data.length + " Results</h2>");
-      
+
       $(".search-results").append(numberOfResults);
 
       for ( var i = 0; i < data.length; i++) {
